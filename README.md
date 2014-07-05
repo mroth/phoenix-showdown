@@ -1,7 +1,7 @@
 # Benchmarking Phoenix vs Rails (WIP)
 
 
-## Running Phoenix
+## Benchmarking Phoenix
 
 ```bash
 $ mix do deps.get, compile
