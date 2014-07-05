@@ -25,13 +25,13 @@ Transfer/sec:     25.43MB
 ```bash
 $ bundle
 $ RACK_ENV=production bundle exec puma -w 4
-[13057] Puma starting in cluster mode...
-[13057] * Version 2.8.2 (ruby 2.1.0-p0), codename: Sir Edmund Percival Hillary
-[13057] * Min threads: 0, max threads: 16
-[13057] * Environment: production
-[13057] * Process workers: 4
-[13057] * Phased restart available
-Running Elixir.Benchmarker.Router with Cowboy on port 4000
+[13185] Puma starting in cluster mode...
+[13185] * Version 2.8.2 (ruby 2.1.0-p0), codename: Sir Edmund Percival Hillary
+[13185] * Min threads: 0, max threads: 16
+[13185] * Environment: production
+[13185] * Process workers: 4
+[13185] * Phased restart available
+[13185] * Listening on tcp://0.0.0.0:9292
 
 $ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:9292/showdown"
 Running 10s test @ http://127.0.0.1:9292/showdown
