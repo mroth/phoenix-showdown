@@ -1,7 +1,8 @@
 # Benchmarking Phoenix vs Rails (WIP)
 
 
-## Benchmarking Phoenix (Elixir master 88dbad9650abef3161dc76dde75f21e094ba6fd0)
+## Benchmarking Phoenix
+Elixir master 88dbad9650abef3161dc76dde75f21e094ba6fd0
 
 ```bash
 $ mix do deps.get, compile
@@ -20,7 +21,8 @@ Requests/sec:  12120.94
 Transfer/sec:     25.43MB
 ```
 
-## Benchmarking Rails (MRI 2.1.0)
+## Benchmarking Rails
+MRI 2.1.0
 
 ```bash
 $ bundle
