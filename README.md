@@ -28,31 +28,22 @@ MRI 2.1.2
 ```bash
 $ bundle
 $ PUMA_WORKERS=4 MIN_THREADS=1 MAX_THREADS=16 RACK_ENV=production bundle exec puma
-[48246] Puma starting in cluster mode...
-[48246] * Version 2.8.2 (ruby 2.1.2-p95), codename: Sir Edmund Percival Hillary
-[48246] * Min threads: 1, max threads: 16
-[48246] * Environment: production
-[48246] * Process workers: 4
-[48246] * Preloading application
-[48246] * Listening on tcp://0.0.0.0:3000
-[48246] Use Ctrl-C to stop
-[48247] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
-[48248] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
-[48249] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
-[48246] - Worker 0 (pid: 48247) booted, phase: 0
-[48246] - Worker 1 (pid: 48248) booted, phase: 0
-[48250] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
-[48246] - Worker 2 (pid: 48249) booted, phase: 0
-[48246] - Worker 3 (pid: 48250) booted, phase: 0
-[48246] ! Terminating timed out worker: 48247
-[48246] ! Terminating timed out worker: 48248
-[48246] ! Terminating timed out worker: 48250
-[50698] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
-[50699] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
-[48246] - Worker 0 (pid: 50698) booted, phase: 0
-[50700] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
-[48246] - Worker 1 (pid: 50699) booted, phase: 0
-[48246] - Worker 3 (pid: 50700) booted, phase: 0
+[51026] Puma starting in cluster mode...
+[51026] * Version 2.8.2 (ruby 2.1.2-p95), codename: Sir Edmund Percival Hillary
+[51026] * Min threads: 1, max threads: 16
+[51026] * Environment: production
+[51026] * Process workers: 4
+[51026] * Preloading application
+[51026] * Listening on tcp://0.0.0.0:3000
+[51026] Use Ctrl-C to stop
+[51027] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
+[51028] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
+[51026] - Worker 0 (pid: 51027) booted, phase: 0
+[51029] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
+[51026] - Worker 1 (pid: 51028) booted, phase: 0
+[51026] - Worker 2 (pid: 51029) booted, phase: 0
+[51030] + Gemfile in context: /Users/goyox86/Code/phoenix_vs_rails_showdown/rails/benchmarker/Gemfile
+[51026] - Worker 3 (pid: 51030) booted, phase: 0
 
 $ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:3000/showdown"
 Running 30s test @ http://127.0.0.1:3000/showdown
