@@ -16,24 +16,30 @@ instead of a Rails one.  And heck, while I was there, since Express is
 essentially Sinatra for Node, why not do a quick port over there for comparison
 too.
 
+...And then I realized there was a Sinatra-inspired framework for Go called
+Martini, so what the heck, I went crazy and made one for that as well...
+
 MORE HERE...
 
 ## Frameworks Compared
-Comparison of the following
+In the end, I had a comparison of the following:
 
  * Phoenix (Elixir) - EEx
  * Rails (Ruby) - ERB
  * Sinatra (Ruby) - ERB
  * Express (NodeJS) - EJS
+ * Martini (Go) - `template/html`
 
 
-## Differences from original
-
-Document any here.
+## Compared to original tests
+For the most part I tried to keep things as close as possible to the original
+comparison.  I used the same exact templates, splitting them up into equivalent
+files.
 
 
 ## Caveats
-For the most part I tried to keep things as close as possible to the original.
+There was a few gotchas that I adjusted with the new additions to try to get
+at least a closer to an "apples to apples" comparison.
 
 ### Sinatra / ERB
 
@@ -61,6 +67,11 @@ For the most part I tried to keep things as close as possible to the original.
    performance. (If you enable it you obviously get insane performance, which you
    should expect with if you use caching in _any framework_ in an environment
    where your requests are entirely homogenous).
+
+### Martini / Go
+I'm sure some people will complain about my usage of Martini versus a more
+idiomatic Go solution, however this is intended to be a comparison of _similar_
+style frameworks, so it makes sense to use the one that works in the same style.
 
 ### Rails / ERB
 I don't find Rails to be as apt a comparison for this use case as Sinatra,
@@ -179,7 +190,6 @@ Transfer/sec:      4.02MB
 ```
 #### With clustering
 ```bash
-$ npm install
 $ node server.js -w 4
 Starting worker on port 3000
 Starting worker on port 3000
@@ -195,6 +205,26 @@ Running 30s test @ http://127.0.0.1:3000/showdown
   188532 requests in 30.00s, 392.14MB read
 Requests/sec:   6284.41
 Transfer/sec:     13.07MB
+```
+
+### Benchmarking Martini
+Go 1.3
+
+```bash
+$ go get github.com/go-martini/martini
+$ go get github.com/martini-contrib/render
+$ GOMAXPROCS=4 MARTINI_ENV=production go run server.go
+[martini] listening on :3000 (production)
+
+$ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:3000/showdown"
+Running 30s test @ http://127.0.0.1:3000/showdown
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     7.62ms    3.84ms  55.34ms   82.38%
+    Req/Sec     3.36k   261.43     4.59k    71.54%
+  394469 requests in 30.00s, 785.12MB read
+Requests/sec:  13148.48
+Transfer/sec:     26.17MB
 ```
 
 
