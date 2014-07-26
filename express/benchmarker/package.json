@@ -1,0 +1,17 @@
+{
+  "name": "benchmarker",
+  "version": "0.0.1",
+  "description": "Express/NodeJS version for chrismccord showdown",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Rothenberg <mroth@mroth.info",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.3.0",
+    "ejs": "^1.0.0",
+    "express": "^4.7.0",
+    "express-cluster": "0.0.2"
+  }
+}
