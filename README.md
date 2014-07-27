@@ -289,7 +289,7 @@ the same topic if it already exists).
 ## One last thing
 If you enjoyed these benchmarks / programs or found them useful, please consider
 [following me on GitHub][mroth-gh] or [Twitter][mroth-tw] to see when I post new
-projects.
+projects. :v::man::v:
 
 
 [original]: http://www.littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails/
