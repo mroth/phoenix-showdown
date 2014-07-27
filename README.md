@@ -278,7 +278,7 @@ and pull requests are encouraged.
 
 I'm publishing this as a GitHub repo rather than a blog post since the intended
 audience is nerds.  If you want to comment, in lieu of a comment thread, just
-open a GitHub issue with the subject of your comments (or participate in one on
+[open a GitHub issue with the subject of your comments][gh-issues] (or participate in one on
 the same topic if it already exists).
 
 ## One last thing
