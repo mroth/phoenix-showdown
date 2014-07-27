@@ -229,6 +229,11 @@ Requests/sec:  13148.48
 Transfer/sec:     26.17MB
 ```
 
+### Comparative Benchmark Numbers
+
+![chart-throughput][chart-throughput]
+![chart-latency][chart-latency]
+![chart-consistency][chart-consistency]
 
 ## Conclusions
 The only benchmarks that _really_ matter are the ones that apply to your own
@@ -288,5 +293,10 @@ projects.
 
 
 [original]: http://www.littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails/
+
+[chart-throughput]: https://docs.google.com/spreadsheets/d/1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ/embed/oimg?id=1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ&oid=929212339&zx=8xbpo8iwt9le
+[chart-latency]: https://docs.google.com/spreadsheets/d/1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ/embed/oimg?id=1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ&oid=1561475312&zx=ve91q9r48q5
+[chart-consistency]: https://docs.google.com/spreadsheets/d/1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ/embed/oimg?id=1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ&oid=1333395548&zx=lzvtfuk6bdj7
+
 [mroth-gh]: https://github.com/mroth
 [mroth-tw]: https://twitter.com/mroth
