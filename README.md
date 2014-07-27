@@ -240,9 +240,7 @@ Transfer/sec:     26.17MB
 | Express        |           6330.13  |       15.89  |              1.70  |
 | Rails          |           2275.33  |       15.78  |             12.94  |
 
-![chart-throughput][chart-throughput]
-![chart-latency][chart-latency]
-![chart-consistency][chart-consistency]
+
 
 ## Conclusions
 The only benchmarks that _really_ matter are the ones that apply to your own
@@ -302,10 +300,6 @@ projects.
 
 
 [original]: http://www.littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails/
-
-[chart-throughput]: http://f.cl.ly/items/2s3c093X2W1f1E1B2R3j/showdown-throughput.png
-[chart-latency]: http://f.cl.ly/items/3u0f340t0F3d1S1U0f19/showdown-latency.png
-[chart-consistency]: http://f.cl.ly/items/2V0Z3R414133303t2z1Z/showdown-consistency.png
 
 [mroth-gh]: https://github.com/mroth
 [mroth-tw]: https://twitter.com/mroth
