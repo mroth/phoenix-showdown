@@ -177,7 +177,7 @@ NodeJS 0.10.29
 #### Single process
 ```bash
 $ npm install
-$ node server.js
+$ NODE_ENV=production node server.js
 Starting worker on port 3000
 
 $ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:3000/showdown"
@@ -192,7 +192,7 @@ Transfer/sec:      4.02MB
 ```
 #### With clustering
 ```bash
-$ node server.js -w 4
+$ NODE_ENV=production node server.js -w 4
 Starting worker on port 3000
 Starting worker on port 3000
 Starting worker on port 3000

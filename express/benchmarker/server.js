@@ -8,6 +8,7 @@ var PORT = 3000;
 server = function() {
   var app = express();
   app.set('view engine', 'ejs');
+  app.set('view cache', false); // for fairness
 
   app.get('/:title', function(req,res) {
     var members = [
