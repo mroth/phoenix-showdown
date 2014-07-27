@@ -184,11 +184,11 @@ $ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:3000/showdown"
 Running 30s test @ http://127.0.0.1:3000/showdown
   4 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    51.58ms    2.32ms  63.94ms   90.52%
-    Req/Sec   486.46     25.19   547.00     67.11%
-  58030 requests in 30.00s, 120.70MB read
-Requests/sec:   1934.20
-Transfer/sec:      4.02MB
+    Latency    15.89ms    1.70ms  34.55ms   90.47%
+    Req/Sec     1.61k   128.74     1.87k    83.28%
+  189910 requests in 30.00s, 395.01MB read
+Requests/sec:   6330.13
+Transfer/sec:     13.17MB
 ```
 #### With clustering
 ```bash
@@ -202,11 +202,11 @@ $ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:3000/showdown"
 Running 30s test @ http://127.0.0.1:3000/showdown
   4 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    15.86ms    9.41ms  53.07ms   63.50%
-    Req/Sec     1.61k   248.42     2.18k    59.38%
-  188532 requests in 30.00s, 392.14MB read
-Requests/sec:   6284.41
-Transfer/sec:     13.07MB
+    Latency     6.62ms    7.26ms  28.27ms   71.59%
+    Req/Sec     5.25k     2.27k    9.86k    57.91%
+  552917 requests in 30.00s, 1.12GB read
+Requests/sec:  18427.80
+Transfer/sec:     38.33MB
 ```
 
 ### Benchmarking Martini
@@ -234,11 +234,11 @@ Transfer/sec:     26.17MB
 |                | Throughput (req/s) | Latency (ms) | Consistency (σ ms) |
 | :------------- | :----------------- | :----------- | :----------------- |
 | Phoenix        |          22294.75  |        4.54  |              1.75  |
+| Express Cluster|          18427.80  |        6.62  |              7.26  |
 | Martini        |          13148.48  |        7.62  |              3.84  |
 | Sinatra        |           6657.98  |        8.80  |              4.16  |
+| Express        |           6330.13  |       15.89  |              1.70  |
 | Rails          |           2275.33  |       15.78  |             12.94  |
-| Express Cluster|           6284.41  |       15.86  |              9.41  |
-| Express        |           1934.20  |       51.58  |              2.32  |
 
 ![chart-throughput][chart-throughput]
 ![chart-latency][chart-latency]
