@@ -294,9 +294,9 @@ projects.
 
 [original]: http://www.littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails/
 
-[chart-throughput]: https://docs.google.com/spreadsheets/d/1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ/embed/oimg?id=1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ&oid=929212339&zx=8xbpo8iwt9le
-[chart-latency]: https://docs.google.com/spreadsheets/d/1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ/embed/oimg?id=1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ&oid=1561475312&zx=ve91q9r48q5
-[chart-consistency]: https://docs.google.com/spreadsheets/d/1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ/embed/oimg?id=1WFMnrMigfsOef2J3MnoxZqxuGbF2dv0895kN9fuWFhQ&oid=1333395548&zx=lzvtfuk6bdj7
+[chart-throughput]: http://f.cl.ly/items/2s3c093X2W1f1E1B2R3j/showdown-throughput.png
+[chart-latency]: http://f.cl.ly/items/3u0f340t0F3d1S1U0f19/showdown-latency.png
+[chart-consistency]: http://f.cl.ly/items/2V0Z3R414133303t2z1Z/showdown-consistency.png
 
 [mroth-gh]: https://github.com/mroth
 [mroth-tw]: https://twitter.com/mroth
