@@ -4,22 +4,27 @@ I was curious about [Chris McCord's Phoenix vs Rails article][original] -- if
 you haven't read it, go do that now first.  Go ahead, this will still be here
 when you get back.  It won't make much sense unless you've read the original.
 
-Like many other Elixir fanboys (and I do consider myself one!), I come from a
-Ruby background.  That said, I found Rails to be a curious choice for
-comparison to Phoenix, since Rails is really a kitchen-sink framework meant to
-handle everything from database migrations to asset-pipeline compilation.
-Sinatra, on the other hand, is a more modular, semi-minimal framework that is
-appears to be pretty close in philosophy to what Phoenix looks like at the
-moment (at least to me).
+Like many other Elixir enthusiasts, I come from a Ruby background.  That said, I
+found Rails to be a curious choice for comparison to Phoenix, since Rails is
+really a kitchen-sink framework meant to handle everything from database
+migrations to asset-pipeline compilation. Sinatra, on the other hand, is a more
+modular, semi-minimal framework that is appears to be pretty close in philosophy
+to what Phoenix looks like at the moment (at least to me).
 
 While I didn't expect the performance to match Elixir/Phoenix, I was curious
 what would happen if I dropped those same ERB templates in a minimal Sinatra app
-instead of a Rails one.  And heck, while I was there, since Express is
-essentially Sinatra for Node, why not do a quick port over there for comparison
-too.
+instead of a Rails one.  
+
+And heck, while I was there, since Express is essentially Sinatra for Node, why
+not do a quick port over there for comparison too...
 
 ...And then I realized there was a Sinatra-inspired framework for Go called
 Martini, so what the heck, I went crazy and made one for that as well...
+
+**Important note:** My benchmarking here was primarily for fun, not science. It
+was mostly an interesting exercise to write the identical application in many of
+the "Sinatra-like" web frameworks to see how similar they were across languages.
+More on this later.
 
 ## Frameworks Compared
 In the end, I had a comparison of the following:
@@ -272,9 +277,9 @@ situations.
 ## Discussion / Feedback
 
 I've worked with all of the languages involved in production systems (with the
-exception of Elixir, which I'm just [enthusiastically] getting started with).
-That said, I'm nowhere near an expert in any of them -- so feedback, comments,
-and pull requests are encouraged.
+exception of Elixir, which I'm just getting started with). That said, I'm
+nowhere near an expert in any of them -- so feedback, comments, and pull
+requests are encouraged.
 
 I'm publishing this as a GitHub repo rather than a blog post since the intended
 audience is nerds.  If you want to comment, in lieu of a comment thread, just
@@ -288,6 +293,6 @@ projects.
 
 
 [original]: http://www.littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails/
-
+[gh-issues]: https://github.com/mroth/phoenix-showdown/issues
 [mroth-gh]: https://github.com/mroth
 [mroth-tw]: https://twitter.com/mroth
