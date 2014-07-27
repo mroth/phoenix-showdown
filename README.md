@@ -1,9 +1,11 @@
-# Benchmarking Phoenix vs Rails vs Sinatra vs Express vs... (WIP)
+# Benchmarking Phoenix vs Rails vs Sinatra vs Express vs Martini...
 
-I was curious about Chris McCord's Phoenix vs Rails article and.... MORE HERE
+I was curious about [Chris McCord's Phoenix vs Rails article][original] -- if
+you haven't read it, go do that now first.  Go ahead, this will still be here
+when you get back.  It won't make much sense unless you've read the original.
 
 Like many other Elixir fanboys (and I do consider myself one!), I come from a
-Ruby background.  That said, I found  Rails to be a curious choice for
+Ruby background.  That said, I found Rails to be a curious choice for
 comparison to Phoenix, since Rails is really a kitchen-sink framework meant to
 handle everything from database migrations to asset-pipeline compilation.
 Sinatra, on the other hand, is a more modular, semi-minimal framework that is
@@ -19,8 +21,6 @@ too.
 ...And then I realized there was a Sinatra-inspired framework for Go called
 Martini, so what the heck, I went crazy and made one for that as well...
 
-MORE HERE...
-
 ## Frameworks Compared
 In the end, I had a comparison of the following:
 
@@ -30,12 +30,14 @@ In the end, I had a comparison of the following:
  * Express (NodeJS) - EJS
  * Martini (Go) - `template/html`
 
-
 ## Compared to original tests
 For the most part I tried to keep things as close as possible to the original
 comparison.  I used the same exact templates, splitting them up into equivalent
-files.
+files.  I tried to do things the same way in every instance, rather than getting
+clever and micro-optimizing for performance.
 
+If you compare the application logic across version, you should (hopefully)
+find it to be very consistent.
 
 ## Caveats
 There was a few gotchas that I adjusted with the new additions to try to get
@@ -232,23 +234,59 @@ Transfer/sec:     26.17MB
 The only benchmarks that _really_ matter are the ones that apply to your own
 environment and use case.  This was really just for curiosity and fun.
 
-That said,
+That said, some things stuck out to me:
 
   - As seen in the numerous caveats, looking into tuning things like caching or
   the impact of logging strategies will have a major impact on your overall app
   performance, quite possibly more than platform.  Think about your own use case
   and pick a strategy accordingly.
 
-  - While Elixir and Phoenix are awesome, the performance numbers of the Rails
-  example are somewhat contrived and not a good comparison. The performance
-  benefits of Elixir/BEAM as an environment are dramatic, but not quite as
-  dramatic when compared against an appropriate Ruby framework  
+  - That said, the default performance of Phoenix/Elixir is quite impressive,
+  especially for such young projects (neither is even at a `1.0` release yet).
+  Given that Elixir is also one of the most conceptually enjoyable languages
+  that I've personally coded with in years, I'm pretty bullish about the future.
 
-  - The "just add magic!" speed of NodeJS is often overstated.  
-  In this particular use case, Ruby/Sinatra performed very competitively to
-  NodeJS/Express when configured similarly.
+  - Don't write off Ruby entirely.  The original benchmark Rails example was
+  not a good comparison. The performance benefits of Elixir/BEAM as an
+  environment are dramatic, but not quite as dramatic when compared against an
+  appropriately comparable Ruby framework such as Sinatra.
 
-  - Finally, really, please never focus on contrived benchmarks as a way to pick
-  the best environment for your project. Think about your use case, and optimize
-  for that as well as developer happiness.  I've used most of these languages /
-  frameworks in production, and each has cases which make it more desirable.
+  - The "just add magic!" conception of NodeJS speed seems to be quite
+  overstated. In this particular use case, Ruby/Sinatra performed very
+  competitively to NodeJS/Express when configured similarly.
+
+  - Speaking of NodeJS, the single-process version of the Express app was the
+  clear worst performer (it was actually very consistent, but that consistency
+  was in higher latency). I suspect what this highlights is not any deficiency
+  in the framework itself, but merely a single CPU core not being able to keep
+  up with the same load as 4 CPU cores (fancy that!). If you use NodeJS in
+  production on multi-core boxes, you should probably be using cluster workers.
+
+Finally, really, please never focus on contrived benchmarks as a way to pick the
+best environment for your project. Think about your use case, but also optimize
+for developer productivity and happiness.  I've used most of these languages /
+frameworks in production, and each has cases which make it more desirable in
+certain circumstances.  There is no "best" language/framework for all
+situations.
+
+## Discussion / Feedback
+
+I've worked with all of the languages involved in production systems (with the
+exception of Elixir, which I'm just [enthusiastically] getting started with).
+That said, I'm nowhere near an expert in any of them -- so feedback, comments,
+and pull requests are encouraged.
+
+I'm publishing this as a GitHub repo rather than a blog post since the intended
+audience is nerds.  If you want to comment, in lieu of a comment thread, just
+open a GitHub issue with the subject of your comments (or participate in one on
+the same topic if it already exists).
+
+## One last thing
+If you enjoyed these benchmarks / programs or found them useful, please consider
+[following me on GitHub][mroth-gh] or [Twitter][mroth-tw] to see when I post new
+projects.
+
+
+[original]: http://www.littlelines.com/blog/2014/07/08/elixir-vs-ruby-showdown-phoenix-vs-rails/
+[mroth-gh]: https://github.com/mroth
+[mroth-tw]: https://twitter.com/mroth
