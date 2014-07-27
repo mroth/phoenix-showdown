@@ -231,6 +231,15 @@ Transfer/sec:     26.17MB
 
 ### Comparative Benchmark Numbers
 
+|                | Throughput (req/s) | Latency (ms) | Consistency (σ ms) |
+| :------------- | :----------------- | :----------- | :----------------- |
+| Phoenix        |           22294.7  |        4.54  |              1.75  |
+| Martini        |          13148.48  |        7.62  |              3.84  |
+| Sinatra        |           6657.98  |        8.80  |              4.16  |
+| Rails          |           2275.33  |       15.78  |             12.94  |
+| Express Cluster|           6284.41  |       15.86  |              9.41  |
+| Express        |           1934.20  |       51.58  |              2.32  |
+
 ![chart-throughput][chart-throughput]
 ![chart-latency][chart-latency]
 ![chart-consistency][chart-consistency]
