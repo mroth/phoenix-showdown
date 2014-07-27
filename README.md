@@ -51,7 +51,7 @@ at least a closer to an "apples to apples" comparison.
 
 ### Express / EJS
 
- * NodeJS cannot run multi-threads, so cluster mode with multiple processes is
+ * NodeJS cannot run multi-threaded, so cluster mode with multiple processes is
    required to take advantage of multi-core.  I used `express-cluster` to make
    this fairly trivial to implement.  I included benchmarks with this both
    enabled and disabled.
@@ -62,13 +62,6 @@ at least a closer to an "apples to apples" comparison.
    was manually included in the index template.  This probably doesn't make a
    big difference but since it's the only template difference I figured I should
    mention it.
-
- * Express uses "view template compilation caching" in production by default.  I
-   disabled this for the benchmarks, since it pretty much defeats the purpose of
-   this comparison which attempts to look at dynamically rendered page
-   performance. (If you enable it you obviously get insane performance, which you
-   should expect with if you use caching in _any framework_ in an environment
-   where your requests are entirely homogenous).
 
 ### Martini / Go
 I'm sure some people will complain about my usage of Martini versus a more
@@ -253,26 +246,21 @@ That said, some things stuck out to me:
   performance, quite possibly more than platform.  Think about your own use case
   and pick a strategy accordingly.
 
-  - That said, the default performance of Phoenix/Elixir is quite impressive,
-  especially for such young projects (neither is even at a `1.0` release yet).
-  Given that Elixir is also one of the most conceptually enjoyable languages
-  that I've personally coded with in years, I'm pretty bullish about the future.
+  - The default performance of Phoenix/Elixir is quite impressive, especially
+  for such young projects (neither is even at a `1.0` release yet). Given that
+  Elixir is also one of the most conceptually enjoyable languages that I've
+  personally coded with in years, I'm pretty bullish about their future.
 
-  - Don't write off Ruby entirely.  The original benchmark Rails example was
-  not a good comparison. The performance benefits of Elixir/BEAM as an
-  environment are dramatic, but not quite as dramatic when compared against an
-  appropriately comparable Ruby framework such as Sinatra.
+  - Looking at the NodeJS/Express performance, it's clear that if you use NodeJS
+  in production on multi-core boxes, you should probably be using cluster
+  workers (but do your own research, they won't be appropriate for every
+  situation.)
 
-  - The "just add magic!" conception of NodeJS speed seems to be quite
-  overstated. In this particular use case, Ruby/Sinatra performed very
-  competitively to NodeJS/Express when configured similarly.
-
-  - Speaking of NodeJS, the single-process version of the Express app was the
-  clear worst performer (it was actually very consistent, but that consistency
-  was in higher latency). I suspect what this highlights is not any deficiency
-  in the framework itself, but merely a single CPU core not being able to keep
-  up with the same load as 4 CPU cores (fancy that!). If you use NodeJS in
-  production on multi-core boxes, you should probably be using cluster workers.
+  - Sinatra is pretty awesome to begin with.  The similarity in writing the code
+  for all these frameworks was pretty astonishing (check out how similar they
+  all are!), and it shows how influential the modular approach taken by Sinatra
+  has been in inspiring other frameworks. If you are a Ruby user currently using
+  Rails, check out Sinatra for a more bottom-up approach and compare.
 
 Finally, really, please never focus on contrived benchmarks as a way to pick the
 best environment for your project. Think about your use case, but also optimize
