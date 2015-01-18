@@ -13,7 +13,7 @@ to what Phoenix looks like at the moment (at least to me).
 
 While I didn't expect the performance to match Elixir/Phoenix, I was curious
 what would happen if I dropped those same ERB templates in a minimal Sinatra app
-instead of a Rails one.  
+instead of a Rails one.
 
 And heck, while I was there, since Express is essentially Sinatra for Node, why
 not do a quick port over there for comparison too...
@@ -90,12 +90,12 @@ All benchmarks run on a local dev machine are highly suspect.  If you want
 more scientific these should really be done in a production server environment.
 
 ### Benchmarking Phoenix
-Elixir 0.14.2
+Elixir 1.0.3
 
 ```bash
 $ mix do deps.get, compile
 $ MIX_ENV=prod mix compile.protocols
-$ MIX_ENV=prod elixir -pa _build/prod/consolidated -S mix phoenix.start
+$ MIX_ENV=prod elixir -pa _build/prod/consolidated -S mix phoenix.server
 Running Elixir.Benchmarker.Router with Cowboy on port 4000
 
 $ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:4000/showdown"
