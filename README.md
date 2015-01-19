@@ -90,11 +90,9 @@ All benchmarks run on a local dev machine are highly suspect.  If you want
 more scientific these should really be done in a production server environment.
 
 ### Benchmarking Phoenix
-Elixir 1.0.3
+Elixir 1.0.2
 
 ```bash
-$ mix do deps.get, compile
-$ MIX_ENV=prod mix compile.protocols
 $ MIX_ENV=prod elixir -pa _build/prod/consolidated -S mix phoenix.server
 Running Elixir.Benchmarker.Router with Cowboy on port 4000
 
@@ -110,10 +108,9 @@ Transfer/sec:     46.78MB
 ```
 
 ### Benchmarking Rails
-MRI 2.1.2
+MRI 2.2.0
 
 ```bash
-$ bundle
 $ PUMA_WORKERS=4 MIN_THREADS=1 MAX_THREADS=16 RACK_ENV=production bundle exec puma
 [11332] Puma starting in cluster mode...
 [11332] * Version 2.8.2 (ruby 2.1.2-p95), codename: Sir Edmund Percival Hillary
@@ -140,10 +137,9 @@ Transfer/sec:      5.08MB
 ```
 
 ### Benchmarking Sinatra
-MRI 2.1.2
+MRI 2.2.0
 
 ```bash
-$ bundle
 $ RACK_ENV=production bundle exec puma -t 1:16 -w 4 --preload
 [8955] Puma starting in cluster mode...
 [8955] * Version 2.9.0 (ruby 2.1.2-p95), codename: Team High Five
@@ -170,11 +166,10 @@ Transfer/sec:     13.73MB
 ```
 
 ### Benchmarking Express
-NodeJS 0.10.29
+NodeJS 0.10.35
 
 #### Single process
 ```bash
-$ npm install
 $ NODE_ENV=production node server.js
 Starting worker on port 3000
 
@@ -208,11 +203,9 @@ Transfer/sec:     38.33MB
 ```
 
 ### Benchmarking Martini
-Go 1.3
+Go 1.4.1
 
 ```bash
-$ go get github.com/go-martini/martini
-$ go get github.com/martini-contrib/render
 $ GOMAXPROCS=4 MARTINI_ENV=production go run server.go
 [martini] listening on :3000 (production)
 
