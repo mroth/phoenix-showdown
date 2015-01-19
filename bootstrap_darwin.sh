@@ -20,9 +20,12 @@ rbenv install --skip-existing 2.2.0
 brew install node
 (cd express/benchmarker && npm install)
 
-# TODO: bootstrap martini
+# bootstrap phoenix
+brew install elixir
+(cd phoenix/benchmarker && mix do deps.get, compile)
+(cd phoenix/benchmarker && MIX_ENV=prod mix compile.protocols)
 
-# TODO: bootstrap phoenix
+# TODO: bootstrap martini
 
 # TODO: bootstrap gin
 
