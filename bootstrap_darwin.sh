@@ -32,4 +32,7 @@ go get github.com/go-martini/martini
 go get github.com/martini-contrib/render
 go get github.com/gin-gonic/gin
 
-# TODO: bootstrap play
+# bootstrap play
+brew install caskroom/cask/brew-cask
+brew cask install java
+(cd play/benchmarker && ./activator clean stage)
