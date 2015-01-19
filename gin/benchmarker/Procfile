@@ -1,0 +1,2 @@
+web: GOMAXPROCS=4 GIN_MODE=release go run server.go
+

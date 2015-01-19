@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -26,6 +29,15 @@ func main() {
 		c.HTML(200, "layout.tmpl", gin.H{"Title": title, "Members": members})
 	})
 
+	// manually get port from environment
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = ":3000"
+	} else {
+		port = ":" + port
+	}
+
 	// Run the server
-	r.Run(":3000")
+	fmt.Println("Starting on port " + port)
+	r.Run(port)
 }
