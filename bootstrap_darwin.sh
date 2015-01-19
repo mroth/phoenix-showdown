@@ -36,3 +36,7 @@ go get github.com/gin-gonic/gin
 brew install caskroom/cask/brew-cask
 brew cask install java
 (cd play/benchmarker && ./activator clean stage)
+
+# install forego/wrk to do the benchmarking
+brew install forego
+brew install wrk
