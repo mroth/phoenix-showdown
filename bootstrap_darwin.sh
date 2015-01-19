@@ -25,8 +25,11 @@ brew install elixir
 (cd phoenix/benchmarker && mix do deps.get, compile)
 (cd phoenix/benchmarker && MIX_ENV=prod mix compile.protocols)
 
-# TODO: bootstrap martini
-
-# TODO: bootstrap gin
+# bootstrap martini / gin
+# (benchmarks are identical between go run and compiled version, so we don't
+# bother to pre-compile binaries)
+go get github.com/go-martini/martini
+go get github.com/martini-contrib/render
+go get github.com/gin-gonic/gin
 
 # TODO: bootstrap play
