@@ -16,7 +16,9 @@ rbenv install --skip-existing 2.2.0
 (cd rails/benchmarker   && bundle install)
 (cd sinatra/benchmarker && bundle install)
 
-# TODO: bootstrap express
+# bootstrap express
+brew install node
+(cd express/benchmarker && npm install)
 
 # TODO: bootstrap martini
 
