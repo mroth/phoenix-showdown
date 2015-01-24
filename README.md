@@ -100,16 +100,20 @@ And finally, since Phoenix has evolved and taken on so much functionality,
 José Valim contributed an example of using Plug for an ultra minimal Elixir
 based solution.
 
-## Benchmarking
-Machine: iMac Intel Core i7 (3.4 GHz 4 Cores) 12 GB RAM
+On a side note: I never expected these tests to get so much attention, a
+sincere thanks to everyone who has contributed PRs, feedback, and commentary!
 
-All benchmarks run on a local dev machine are highly suspect.  If you want
-more scientific these should really be done in a production server environment.
+## Benchmarking
+I ran these on my iMac Intel Core i7 (4.0 GHz 4 Cores) 32 GB RAM.
+
+_Note: All benchmarks run on a local dev machine are highly suspect.  If you
+want more scientific results these should really be done in a production server
+environment._
 
 
 ### Comparative Benchmark Numbers
 
-(IMPORT CHART WHEN FINAL)
+(**IMPORT CHART WHEN FINAL**)
 
 You can view [the detailed results](/RESULTS_v2.md),
 or see the [original round of benchmarks](/RESULTS_v1.md) to compare.
@@ -157,8 +161,8 @@ requests are encouraged.
 
 I'm publishing this as a GitHub repo rather than a blog post since the intended
 audience is nerds.  If you want to comment, in lieu of a comment thread, just
-[open a GitHub issue with the subject of your comments][gh-issues] (or participate in one on
-the same topic if it already exists).
+[open a GitHub issue with the subject of your comments][gh-issues] (or
+participate in one on the same topic if it already exists).
 
 ## One last thing
 If you enjoyed these benchmarks / programs or found them useful, please consider
