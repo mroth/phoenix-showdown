@@ -262,9 +262,9 @@ That said, some things stuck out to me:
   and pick a strategy accordingly.
 
   - The default performance of Phoenix/Elixir is quite impressive, especially
-  for such young projects (neither is even at a `1.0` release yet). Given that
-  Elixir is also one of the most conceptually enjoyable languages that I've
-  personally coded with in years, I'm pretty bullish about their future.
+  for such young projects. Given that Elixir is also one of the most
+  conceptually enjoyable languages that I've personally coded with in years, I'm
+  pretty bullish about their future.
 
   - Looking at the NodeJS/Express performance, it's clear that if you use NodeJS
   in production on multi-core boxes, you should probably be using cluster
