@@ -35,7 +35,7 @@ In the end, I had a comparison of the following:
  * Express (NodeJS) - EJS
  * Martini (Go) - `template/html`
 
-## Compared to original tests
+## Compared to @chrismccord's original tests
 For the most part I tried to keep things as close as possible to the original
 comparison.  I used the same exact templates, splitting them up into equivalent
 files.  I tried to do things the same way in every instance, rather than getting
@@ -82,6 +82,23 @@ For that reason, I didn't do too much here. That said, there is probably a lot
 that can/should be disabled in Rails that is there by default for "free" if you
 wanted this to be a closer comparison.  Pull requests welcome if you care!
 
+## Updates!  Round two of benchmarks (January 2015)
+
+Phoenix has evolved quite a bit since the first version of this post! It's taken
+on a lot of great functionality, moving it perhaps closer to being a Rails
+alternative than Sinatra.  This somewhat obviates the point of these benchmarks
+(which were to compare to more minimal Sinatra like frameworks), but let's
+update them anyhow, and see if Phoenix can maintain its excellent performance
+characteristics while taking on more
+
+Additionally, I received PRs to add two new additional frameworks to the mix.
+Gin is another Sinatra-like for Go focused on performance. The Play Framework
+is a JVM platform that seems a bit more similar to Rails to me, but with the
+expanded functionality Phoenix has taken on, is probably a good comparison.
+
+And finally, since Phoenix has evolved and taken on so much functionality,
+José Valim contributed an example of using Plug for an ultra minimal Elixir
+based solution.
 
 ## Benchmarking
 Machine: iMac Intel Core i7 (3.4 GHz 4 Cores) 12 GB RAM
