@@ -237,18 +237,13 @@ Requests/sec:  13148.48
 Transfer/sec:     26.17MB
 ```
 
+
 ### Comparative Benchmark Numbers
 
-|                | Throughput (req/s) | Latency (ms) | Consistency (σ ms) |
-| :------------- | :----------------- | :----------- | :----------------- |
-| Phoenix        |          22294.75  |        4.54  |              1.75  |
-| Express Cluster|          18427.80  |        6.62  |              7.26  |
-| Martini        |          13148.48  |        7.62  |              3.84  |
-| Sinatra        |           6657.98  |        8.80  |              4.16  |
-| Express        |           6330.13  |       15.89  |              1.70  |
-| Rails          |           2275.33  |       15.78  |             12.94  |
+(IMPORT CHART WHEN FINAL)
 
-
+You can view [the detailed results](/RESULTS_v2.md),
+or see the [original round of benchmarks](/RESULTS_v1.md) to compare.
 
 ## Conclusions
 The only benchmarks that _really_ matter are the ones that apply to your own
