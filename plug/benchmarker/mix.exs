@@ -31,8 +31,10 @@ defmodule Benchmarker.Mixfile do
   end
 
   defp server(_) do
-    {:ok, _} = Plug.Adapters.Cowboy.http Benchmarker, []
-    Mix.shell.info "Running Benchmarker on port 4000"
+    port = String.to_integer( System.get_env("PORT") || "4000" )
+
+    Mix.shell.info "Running Benchmarker on port #{port}"
+    {:ok, _} = Plug.Adapters.Cowboy.http Benchmarker, [], port: port
     :code.delete(Access)
     :timer.sleep(:infinity)
   end
