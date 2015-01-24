@@ -16,7 +16,7 @@ defmodule Benchmarker do
 
   defp render(conn, template, assigns) do
     inner = apply(__MODULE__, template, [[conn: conn] ++ assigns])
-    outer = layout([conn: conn, inner: inner] ++ assigns])
+    outer = layout([conn: conn, inner: inner] ++ assigns)
     send_resp(conn, 200, outer)
   end
 
