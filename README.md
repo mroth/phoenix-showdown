@@ -74,9 +74,9 @@ idiomatic Go solution, however this is intended to be a comparison of _similar_
 style frameworks, so it makes sense to use the one that works in the same style.
 
 ### Rails / ERB
-I don't find Rails to be as apt a comparison for this use case as Sinatra,
-since none of it's magic is being used in this example but it hasn't been
-disabled to it creates a lot of overhead.
+I originally didn't find Rails to be as apt a comparison for this use case as
+Sinatra, since it contains a lot of functionality not being used here that
+contributes to overhead.
 
 For that reason, I didn't do too much here. That said, there is probably a lot
 that can/should be disabled in Rails that is there by default for "free" if you
@@ -89,7 +89,7 @@ on a lot of great functionality, moving it perhaps closer to being a Rails
 alternative than Sinatra.  This somewhat obviates the point of these benchmarks
 (which were to compare to more minimal Sinatra like frameworks), but let's
 update them anyhow, and see if Phoenix can maintain its excellent performance
-characteristics while taking on more
+characteristics while taking on more.
 
 Additionally, I received PRs to add two new additional frameworks to the mix.
 Gin is another Sinatra-like for Go focused on performance. The Play Framework
