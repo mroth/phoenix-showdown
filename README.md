@@ -113,7 +113,27 @@ environment._
 
 ### Comparative Benchmark Numbers
 
-(**IMPORT CHART WHEN FINAL**)
+| Framework      | Throughput (req/s) | Latency (ms) | Consistency (σ ms) |
+| :------------- | -----------------: | -----------: | -----------------: |
+| Gin            |          51483.20  |        1.94  |              0.63  |
+| Phoenix        |          43063.45  |        2.82  |        _(1)_ 7.46  |
+| Express Cluster|          27669.46  |        3.73  |              2.12  |
+| Martini        |          14798.46  |        6.81  |             10.34  |
+| Sinatra        |           9182.86  |        6.55  |              3.03  |
+| Express        |           9965.56  |       10.07  |              0.95  |
+| Rails          |           3274.81  |       17.25  |              6.88  |
+| Plug _(1)_     |          54948.14  |        3.83  |             12.40  |
+| Play _(2)_     |          63256.20  |        1.62  |              2.96  |
+
+ 1. Consistency for both Erlang solutions have become more unstable in this
+ round of tests compared to previous (where it was rock solid).  It appears to
+ be somewhat specific to my Erlang install, but I haven't been able to locate a
+ reason for it yet. Some others are experiencing similar results, we have been
+ discussing this in the `#elixir-lang` IRC channel if you want to help.
+
+ 2. Play _consistently_ appeared to generate hundreds of socket read errors (see
+ the detailed output), so I believe it should probably be semi-disqualified from
+ the results for now.
 
 You can view [the detailed results](/RESULTS_v2.md),
 or see the [original round of benchmarks](/RESULTS_v1.md) to compare.
