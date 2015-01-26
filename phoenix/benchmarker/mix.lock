@@ -1,8 +1,6 @@
-%{"cowboy": {:git, "git://github.com/extend/cowboy.git", "1a71a733c37df70c15ebfd28157b10915cd738d1", []},
-  "cowlib": {:git, "git://github.com/extend/cowlib.git", "e2ffefe828b918486e2cd76e44c54ae9b62c616e", [ref: "0.6.2"]},
-  "ex_conf": {:package, "0.1.3"},
-  "inflex": {:package, "0.2.4"},
-  "jazz": {:package, "0.1.2"},
-  "phoenix": {:package, "0.3.1"},
-  "plug": {:package, "0.5.1"},
-  "ranch": {:git, "git://github.com/extend/ranch.git", "3189ef2d47843945efc96c224963380462c33d40", [ref: "0.10.0"]}}
+%{"cowboy": {:hex, :cowboy, "1.0.0"},
+  "cowlib": {:hex, :cowlib, "1.0.1"},
+  "phoenix": {:git, "git://github.com/phoenixframework/phoenix.git", "9d13da084bc09c94e7440be94be5fba8d33ac5ca", [ref: "9d13da084bc09c94e7440be94be5fba8d33ac5ca"]},
+  "plug": {:hex, :plug, "0.9.0"},
+  "poison": {:hex, :poison, "1.3.0"},
+  "ranch": {:hex, :ranch, "1.0.0"}}

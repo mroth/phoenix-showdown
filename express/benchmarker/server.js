@@ -3,7 +3,7 @@ var express = require('express');
 var cluster = require('express-cluster');
 var program = require('commander');
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 server = function() {
   var app = express();

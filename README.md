@@ -13,7 +13,7 @@ to what Phoenix looks like at the moment (at least to me).
 
 While I didn't expect the performance to match Elixir/Phoenix, I was curious
 what would happen if I dropped those same ERB templates in a minimal Sinatra app
-instead of a Rails one.  
+instead of a Rails one.
 
 And heck, while I was there, since Express is essentially Sinatra for Node, why
 not do a quick port over there for comparison too...
@@ -35,7 +35,7 @@ In the end, I had a comparison of the following:
  * Express (NodeJS) - EJS
  * Martini (Go) - `template/html`
 
-## Compared to original tests
+## Compared to @chrismccord's original tests
 For the most part I tried to keep things as close as possible to the original
 comparison.  I used the same exact templates, splitting them up into equivalent
 files.  I tried to do things the same way in every instance, rather than getting
@@ -74,171 +74,69 @@ idiomatic Go solution, however this is intended to be a comparison of _similar_
 style frameworks, so it makes sense to use the one that works in the same style.
 
 ### Rails / ERB
-I don't find Rails to be as apt a comparison for this use case as Sinatra,
-since none of it's magic is being used in this example but it hasn't been
-disabled to it creates a lot of overhead.
+I originally didn't find Rails to be as apt a comparison for this use case as
+Sinatra, since it contains a lot of functionality not being used here that
+contributes to overhead.
 
 For that reason, I didn't do too much here. That said, there is probably a lot
 that can/should be disabled in Rails that is there by default for "free" if you
 wanted this to be a closer comparison.  Pull requests welcome if you care!
 
+## Updates!  Round two of benchmarks (January 2015)
+
+Phoenix has evolved quite a bit since the first version of this post! It's taken
+on a lot of great functionality, moving it perhaps closer to being a Rails
+alternative than Sinatra.  This somewhat obviates the point of these benchmarks
+(which were to compare to more minimal Sinatra like frameworks), but let's
+update them anyhow, and see if Phoenix can maintain its excellent performance
+characteristics while taking on more.
+
+Additionally, I received PRs to add two new additional frameworks to the mix.
+Gin is another Sinatra-like for Go focused on performance. The Play Framework
+is a JVM platform that seems a bit more similar to Rails to me, but with the
+expanded functionality Phoenix has taken on, is probably a good comparison.
+
+And finally, since Phoenix has evolved and taken on so much functionality,
+José Valim contributed an example of using Plug for an ultra minimal Elixir
+based solution.
+
+On a side note: I never expected these tests to get so much attention, a
+sincere thanks to everyone who has contributed PRs, feedback, and commentary!
 
 ## Benchmarking
-Machine: iMac Intel Core i7 (3.4 GHz 4 Cores) 12 GB RAM
+I ran these on my iMac Intel Core i7 (4.0 GHz 4 Cores) 32 GB RAM.
 
-All benchmarks run on a local dev machine are highly suspect.  If you want
-more scientific these should really be done in a production server environment.
+_Note: All benchmarks run on a local dev machine are highly suspect.  If you
+want more scientific results these should really be done in a production server
+environment._
 
-### Benchmarking Phoenix
-Elixir 0.14.2
-
-```bash
-$ mix do deps.get, compile
-$ MIX_ENV=prod mix compile.protocols
-$ MIX_ENV=prod elixir -pa _build/prod/consolidated -S mix phoenix.start
-Running Elixir.Benchmarker.Router with Cowboy on port 4000
-
-$ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:4000/showdown"
-Running 30s test @ http://127.0.0.1:4000/showdown
-  4 threads and 100 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     4.54ms    1.75ms  56.55ms   90.59%
-    Req/Sec     5.89k   754.52     8.67k    69.55%
-  668836 requests in 30.00s, 1.37GB read
-Requests/sec:  22294.75
-Transfer/sec:     46.78MB
-```
-
-### Benchmarking Rails
-MRI 2.1.2
-
-```bash
-$ bundle
-$ PUMA_WORKERS=4 MIN_THREADS=1 MAX_THREADS=16 RACK_ENV=production bundle exec puma
-[11332] Puma starting in cluster mode...
-[11332] * Version 2.8.2 (ruby 2.1.2-p95), codename: Sir Edmund Percival Hillary
-[11332] * Min threads: 1, max threads: 16
-[11332] * Environment: production
-[11332] * Process workers: 4
-[11332] * Preloading application
-[11332] * Listening on tcp://0.0.0.0:3000
-[11332] Use Ctrl-C to stop
-[11332] - Worker 0 (pid: 11364) booted, phase: 0
-[11332] - Worker 1 (pid: 11365) booted, phase: 0
-[11332] - Worker 2 (pid: 11366) booted, phase: 0
-[11332] - Worker 3 (pid: 11367) booted, phase: 0
-
-$ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:3000/showdown"
-Running 30s test @ http://127.0.0.1:3000/showdown
-  4 threads and 100 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    15.78ms   12.94ms  58.57ms   91.30%
-    Req/Sec   627.10    514.89     1.73k    49.49%
-  68263 requests in 30.00s, 152.47MB read
-Requests/sec:   2275.33
-Transfer/sec:      5.08MB
-```
-
-### Benchmarking Sinatra
-MRI 2.1.2
-
-```bash
-$ bundle
-$ RACK_ENV=production bundle exec puma -t 1:16 -w 4 --preload
-[8955] Puma starting in cluster mode...
-[8955] * Version 2.9.0 (ruby 2.1.2-p95), codename: Team High Five
-[8955] * Min threads: 1, max threads: 16
-[8955] * Environment: production
-[8955] * Process workers: 4
-[8955] * Preloading application
-[8955] * Listening on tcp://0.0.0.0:9292
-[8955] Use Ctrl-C to stop
-[8955] - Worker 0 (pid: 8987) booted, phase: 0
-[8955] - Worker 1 (pid: 8988) booted, phase: 0
-[8955] - Worker 2 (pid: 8989) booted, phase: 0
-[8955] - Worker 3 (pid: 8990) booted, phase: 0
-
-$ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:9292/showdown"
-Running 30s test @ http://127.0.0.1:9292/showdown
-  4 threads and 100 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     8.80ms    4.16ms  43.74ms   72.05%
-    Req/Sec     1.73k     0.88k    3.30k    54.38%
-  199742 requests in 30.00s, 412.03MB read
-Requests/sec:   6657.98
-Transfer/sec:     13.73MB
-```
-
-### Benchmarking Express
-NodeJS 0.10.29
-
-#### Single process
-```bash
-$ npm install
-$ NODE_ENV=production node server.js
-Starting worker on port 3000
-
-$ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:3000/showdown"
-Running 30s test @ http://127.0.0.1:3000/showdown
-  4 threads and 100 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    15.89ms    1.70ms  34.55ms   90.47%
-    Req/Sec     1.61k   128.74     1.87k    83.28%
-  189910 requests in 30.00s, 395.01MB read
-Requests/sec:   6330.13
-Transfer/sec:     13.17MB
-```
-#### With clustering
-```bash
-$ NODE_ENV=production node server.js -w 4
-Starting worker on port 3000
-Starting worker on port 3000
-Starting worker on port 3000
-Starting worker on port 3000
-
-$ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:3000/showdown"
-Running 30s test @ http://127.0.0.1:3000/showdown
-  4 threads and 100 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     6.62ms    7.26ms  28.27ms   71.59%
-    Req/Sec     5.25k     2.27k    9.86k    57.91%
-  552917 requests in 30.00s, 1.12GB read
-Requests/sec:  18427.80
-Transfer/sec:     38.33MB
-```
-
-### Benchmarking Martini
-Go 1.3
-
-```bash
-$ go get github.com/go-martini/martini
-$ go get github.com/martini-contrib/render
-$ GOMAXPROCS=4 MARTINI_ENV=production go run server.go
-[martini] listening on :3000 (production)
-
-$ wrk -t4 -c100 -d30S --timeout 2000 "http://127.0.0.1:3000/showdown"
-Running 30s test @ http://127.0.0.1:3000/showdown
-  4 threads and 100 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     7.62ms    3.84ms  55.34ms   82.38%
-    Req/Sec     3.36k   261.43     4.59k    71.54%
-  394469 requests in 30.00s, 785.12MB read
-Requests/sec:  13148.48
-Transfer/sec:     26.17MB
-```
 
 ### Comparative Benchmark Numbers
 
-|                | Throughput (req/s) | Latency (ms) | Consistency (σ ms) |
-| :------------- | :----------------- | :----------- | :----------------- |
-| Phoenix        |          22294.75  |        4.54  |              1.75  |
-| Express Cluster|          18427.80  |        6.62  |              7.26  |
-| Martini        |          13148.48  |        7.62  |              3.84  |
-| Sinatra        |           6657.98  |        8.80  |              4.16  |
-| Express        |           6330.13  |       15.89  |              1.70  |
-| Rails          |           2275.33  |       15.78  |             12.94  |
+| Framework      | Throughput (req/s) | Latency (ms) | Consistency (σ ms) |
+| :------------- | -----------------: | -----------: | -----------------: |
+| Gin            |          51483.20  |        1.94  |              0.63  |
+| Phoenix        |          43063.45  |        2.82  |        _(1)_ 7.46  |
+| Express Cluster|          27669.46  |        3.73  |              2.12  |
+| Martini        |          14798.46  |        6.81  |             10.34  |
+| Sinatra        |           9182.86  |        6.55  |              3.03  |
+| Express        |           9965.56  |       10.07  |              0.95  |
+| Rails          |           3274.81  |       17.25  |              6.88  |
+| Plug _(1)_     |          54948.14  |        3.83  |             12.40  |
+| Play _(2)_     |          63256.20  |        1.62  |              2.96  |
 
+ 1. Consistency for both Erlang solutions have become more unstable in this
+ round of tests compared to previous (where it was rock solid).  It appears to
+ be somewhat specific to my Erlang install, but I haven't been able to locate a
+ reason for it yet. Some others are experiencing similar results, we have been
+ discussing this in the `#elixir-lang` IRC channel if you want to help.
 
+ 2. Play _consistently_ appeared to generate hundreds of socket read errors (see
+ the detailed output), so I believe it should probably be semi-disqualified from
+ the results for now.
+
+You can view [the detailed results](/RESULTS_v2.md),
+or see the [original round of benchmarks](/RESULTS_v1.md) to compare.
 
 ## Conclusions
 The only benchmarks that _really_ matter are the ones that apply to your own
@@ -252,9 +150,9 @@ That said, some things stuck out to me:
   and pick a strategy accordingly.
 
   - The default performance of Phoenix/Elixir is quite impressive, especially
-  for such young projects (neither is even at a `1.0` release yet). Given that
-  Elixir is also one of the most conceptually enjoyable languages that I've
-  personally coded with in years, I'm pretty bullish about their future.
+  for such young projects. Given that Elixir is also one of the most
+  conceptually enjoyable languages that I've personally coded with in years, I'm
+  pretty bullish about their future.
 
   - Looking at the NodeJS/Express performance, it's clear that if you use NodeJS
   in production on multi-core boxes, you should probably be using cluster
@@ -283,8 +181,8 @@ requests are encouraged.
 
 I'm publishing this as a GitHub repo rather than a blog post since the intended
 audience is nerds.  If you want to comment, in lieu of a comment thread, just
-[open a GitHub issue with the subject of your comments][gh-issues] (or participate in one on
-the same topic if it already exists).
+[open a GitHub issue with the subject of your comments][gh-issues] (or
+participate in one on the same topic if it already exists).
 
 ## One last thing
 If you enjoyed these benchmarks / programs or found them useful, please consider
