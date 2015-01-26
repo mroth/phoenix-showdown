@@ -184,6 +184,10 @@ audience is nerds.  If you want to comment, in lieu of a comment thread, just
 [open a GitHub issue with the subject of your comments][gh-issues] (or
 participate in one on the same topic if it already exists).
 
+_(I'm also currently working on a
+[similar showdown for Twitter Streaming API libraries][twitter-showdown],
+and it could use your help!)_
+
 ## One last thing
 If you enjoyed these benchmarks / programs or found them useful, please consider
 [following me on GitHub][mroth-gh] or [Twitter][mroth-tw] to see when I post new
@@ -194,3 +198,4 @@ projects. :v::man::v:
 [gh-issues]: https://github.com/mroth/phoenix-showdown/issues
 [mroth-gh]: https://github.com/mroth
 [mroth-tw]: https://twitter.com/mroth
+[twitter-showdown]: https://github.com/mroth/twitter-streaming-showdown
