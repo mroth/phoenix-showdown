@@ -1,3 +1,3 @@
 defmodule Benchmarker.PageView do
-  use Benchmarker.View
+  use Benchmarker.Web, :view
 end

@@ -1,5 +1,5 @@
 defmodule Benchmarker.PageController do
-  use Phoenix.Controller
+  use Benchmarker.Web, :controller
 
   plug :action
 

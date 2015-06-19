@@ -22,7 +22,7 @@ defmodule Benchmarker.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, github: "phoenixframework/phoenix", ref: "9d13da084bc09c94e7440be94be5fba8d33ac5ca"},
+    [{:phoenix, "~> 0.10.0"},
      {:cowboy, "~> 1.0"}]
   end
 end
