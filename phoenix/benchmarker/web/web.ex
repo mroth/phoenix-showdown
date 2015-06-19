@@ -6,8 +6,7 @@ defmodule Benchmarker.Web do
       # Import common functionality
       import Benchmarker.Router.Helpers
 
-      # Use Phoenix.HTML to import all HTML functions (forms, tags, etc)
-      use Phoenix.HTML
+      import Phoenix.Controller, only: [get_flash: 2]
     end
   end
 
