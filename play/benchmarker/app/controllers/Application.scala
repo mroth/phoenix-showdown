@@ -2,11 +2,16 @@ package controllers
 
 import play.api._
 import play.api.mvc._
+import models._
 
-object Application extends Controller {
+class Application extends Controller {
 
   def index(title: String) = Action {
-     val members = List(Map("name" -> "Chris McCord"), Map("name" -> "Matt Sears"), Map("name" -> "David Stump"), Map("name" -> "Ricardo Thompson"))
-    Ok(views.html.index(members, title))
+     Ok(views.html.index(Seq(
+       Member("Chris McCord"),
+       Member("Matt Sears"),
+       Member("David Stump"),
+       Member("Ricardo Thompson")
+    ), title))
   }
 }
