@@ -15,6 +15,7 @@ brew install rbenv
 rbenv install --skip-existing 2.2.0
 (cd rails/benchmarker   && bundle install)
 (cd sinatra/benchmarker && bundle install)
+(cd cuba/benchmarker && bundle install)
 
 # bootstrap express
 brew install node
