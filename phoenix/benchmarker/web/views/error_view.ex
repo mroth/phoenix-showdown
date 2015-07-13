@@ -1,5 +1,5 @@
 defmodule Benchmarker.ErrorView do
-  use Benchmarker.View
+  use Benchmarker.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found - 404"

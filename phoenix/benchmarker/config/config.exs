@@ -9,7 +9,8 @@ use Mix.Config
 config :benchmarker, Benchmarker.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "73VPBpeLgZrt/w5Xu7J+8gNUZekDfyc/zrK6/wLr/+pssmAB7pndkPy8wg0ISYP1",
-  debug_errors: false
+  debug_errors: false,
+  root: Path.expand("..", __DIR__)
 
 # Configures Elixir's Logger
 config :logger, :console,

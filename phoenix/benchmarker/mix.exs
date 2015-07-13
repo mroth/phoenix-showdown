@@ -5,8 +5,10 @@ defmodule Benchmarker.Mixfile do
     [app: :benchmarker,
      version: "0.0.1",
      elixir: "~> 1.0",
-     elixirc_paths: ["lib", "web"],
+     elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,
+     build_embedded: Mix.env == :prod,
+     start_permanent: Mix.env == :prod,
      deps: deps]
   end
 
@@ -22,7 +24,13 @@ defmodule Benchmarker.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, github: "phoenixframework/phoenix", ref: "9d13da084bc09c94e7440be94be5fba8d33ac5ca"},
-     {:cowboy, "~> 1.0"}]
+    [{:phoenix, "~> 0.13.1"},
+     {:cowboy, "~> 1.0"},
+     {:phoenix_live_reload, "~> 0.4"},
+     {:phoenix_html, "~> 1.0"}
+   ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
+  defp elixirc_paths(_),     do: ["lib", "web"]
 end
