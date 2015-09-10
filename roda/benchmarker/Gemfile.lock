@@ -1,0 +1,17 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    puma (2.10.2)
+      rack (>= 1.1, < 2.0)
+    rack (1.6.0)
+    roda (2.5.1)
+      rack
+    tilt (1.4.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  puma (~> 2.10.2)
+  roda
+  tilt

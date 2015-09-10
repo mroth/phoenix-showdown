@@ -8,6 +8,7 @@ sudo apt-get install -y ruby2.1-dev bundler
 (cd rails/benchmarker   && bundle install)
 (cd sinatra/benchmarker && bundle install)
 (cd cuba/benchmarker && bundle install)
+(cd roda/benchmarker && bundle install)
 
 # bootstrap express
 sudo apt-get install -y nodejs-dev
