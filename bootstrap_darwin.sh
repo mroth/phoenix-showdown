@@ -42,6 +42,9 @@ brew install caskroom/cask/brew-cask
 brew cask install java
 (cd play/benchmarker && ./activator clean stage)
 
+# bootstrap undertow
+(cd undertow/benchmarker && ./gradlew clean build)
+
 # install forego/wrk to do the benchmarking
 brew install forego
 brew install wrk
