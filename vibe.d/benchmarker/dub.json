@@ -1,0 +1,15 @@
+{
+	"authors": [
+		"Pedro Tacla Yamada"
+	],
+	"name": "benchmarker",
+	"license": "MIT",
+	"copyright": "Copyright © 2016, Pedro Tacla Yamada",
+	"description": "A simple vibe.d server application.",
+	"dependencies": {
+		"vibe-d": "~>0.7.28"
+	},
+	"versions": [
+		"VibeDefaultMain"
+	]
+}
