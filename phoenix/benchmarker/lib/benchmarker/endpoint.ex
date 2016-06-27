@@ -18,7 +18,7 @@ defmodule Benchmarker.Endpoint do
     signing_salt: "UU4/F5b7",
     encryption_salt: "9R4y+niH"
 
-  plug :router, Benchmarker.Router
+  plug Benchmarker.Router
 
   if code_reloading? do
     plug Phoenix.LiveReloader

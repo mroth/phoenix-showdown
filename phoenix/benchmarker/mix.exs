@@ -24,9 +24,9 @@ defmodule Benchmarker.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 0.13.1"},
+    [{:phoenix, "~> 1.0"},
      {:cowboy, "~> 1.0"},
-     {:phoenix_live_reload, "~> 0.4"},
+     {:phoenix_live_reload, "~> 1.0"},
      {:phoenix_html, "~> 1.0"}
    ]
   end
