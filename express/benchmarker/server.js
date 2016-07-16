@@ -5,7 +5,7 @@ var program = require('commander');
 
 var PORT = process.env.PORT || 3000;
 
-server = function() {
+server = function(options) {
   var app = express();
   app.set('view engine', 'ejs');
 
@@ -20,15 +20,16 @@ server = function() {
     res.render('index', {title: req.params.title, members: members});
   });
 
-  console.log("Starting worker on port " + PORT);
-  return app.listen(PORT);
+  console.log("Starting worker on port " + options.port);
+  return app.listen(options.port);
 }
 
 
 program.option('-w, --workers <n>', 'Number of cluster workers', parseInt);
+program.option('-p, --port <n>', 'Port number', parseInt);
 program.parse(process.argv);
 if (program.workers == undefined) {
-  server();
+  server({port: program.port});
 } else {
-  cluster( server, {count: program.workers} );
+  cluster( server.bind(null, {port: program.port}), {count: program.workers} );
 }
