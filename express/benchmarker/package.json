@@ -10,8 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^2.6.0",
-    "ejs": "^1.0.0",
-    "express": "^4.11.0",
-    "express-cluster": "0.0.3"
+    "ejs": "^2.4.2",
+    "express": "^4.14.0",
+    "express-cluster": "0.0.4"
   }
 }
