@@ -1,8 +1,26 @@
 defmodule Benchmarker.Endpoint do
   use Phoenix.Endpoint, otp_app: :benchmarker
 
+  socket "/socket", Benchmarker.UserSocket
+
+  # Serve at "/" the static files from "priv/static" directory.
+  #
+  # You should set gzip to true if you are running phoenix.digest
+  # when deploying your static files in production.
   plug Plug.Static,
-    at: "/static", from: :benchmarker
+    at: "/", from: :benchmarker, gzip: false,
+    only: ~w(css fonts images js favicon.ico robots.txt)
+
+  # Code reloading can be explicitly enabled under the
+  # :code_reloader configuration of your endpoint.
+  if code_reloading? do
+    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
+    plug Phoenix.LiveReloader
+    plug Phoenix.CodeReloader
+  end
+
+  plug Plug.RequestId
+  plug Plug.Logger
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
@@ -12,16 +30,13 @@ defmodule Benchmarker.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
 
+  # The session will be stored in the cookie and signed,
+  # this means its contents can be read but not tampered with.
+  # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
     key: "_benchmarker_key",
-    signing_salt: "UU4/F5b7",
-    encryption_salt: "9R4y+niH"
+    signing_salt: "iAl6GjU1"
 
-  plug :router, Benchmarker.Router
-
-  if code_reloading? do
-    plug Phoenix.LiveReloader
-    plug Phoenix.CodeReloader
-  end
+  plug Benchmarker.Router
 end
