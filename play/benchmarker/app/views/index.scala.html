@@ -1,4 +1,4 @@
-@(members: List[Map[String, String]], title: String)
+@(members: Seq[Member], title: String)
 
 @main {
   <div class="jumbotron">
@@ -30,7 +30,7 @@
       <ul>
         @for(member <- members) {
           <li>
-            @bio(member.get("name").get)
+            @bio(member)
           </li>
         }
       </ul>
