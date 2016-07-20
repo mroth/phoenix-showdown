@@ -140,6 +140,10 @@ or see the [original round of benchmarks](/RESULTS_v1.md) to compare.
 
 [Client-server benchmarks](https://gist.github.com/omnibs/e5e72b31e6bd25caf39a) on a dual 10 core Xeon were contributed by [Juliano Solanho](https://github.com/omnibs) and are also available for comparison.
 
+**UPDATE JULY 2016:** There is a now a slightly more recent version update run
+as [Round #3](/RESULTS_v3.md).  _Please note I do not intend to continue updating
+these benchmarks further past this point._
+
 ## Conclusions
 The only benchmarks that _really_ matter are the ones that apply to your own
 environment and use case.  This was really just for curiosity and fun.
