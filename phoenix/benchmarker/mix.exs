@@ -4,33 +4,35 @@ defmodule Benchmarker.Mixfile do
   def project do
     [app: :benchmarker,
      version: "0.0.1",
-     elixir: "~> 1.0",
+     elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
-     compilers: [:phoenix] ++ Mix.compilers,
+     compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps()]
   end
 
-  # Configuration for the OTP application
+  # Configuration for the OTP application.
   #
-  # Type `mix help compile.app` for more information
+  # Type `mix help compile.app` for more information.
   def application do
     [mod: {Benchmarker, []},
-     applications: [:phoenix, :cowboy, :logger]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext]]
   end
 
-  # Specifies your project dependencies
-  #
-  # Type `mix help deps` for examples and options
-  defp deps do
-    [{:phoenix, "~> 0.13.1"},
-     {:cowboy, "~> 1.0"},
-     {:phoenix_live_reload, "~> 0.4"},
-     {:phoenix_html, "~> 1.0"}
-   ]
-  end
-
+  # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
   defp elixirc_paths(_),     do: ["lib", "web"]
+
+  # Specifies your project dependencies.
+  #
+  # Type `mix help deps` for examples and options.
+  defp deps do
+    [{:phoenix, "~> 1.2.0"},
+     {:phoenix_pubsub, "~> 1.0"},
+     {:phoenix_html, "~> 2.6"},
+     {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:gettext, "~> 0.11"},
+     {:cowboy, "~> 1.0"}]
+  end
 end

@@ -2,7 +2,6 @@ defmodule Benchmarker do
   use Plug.Router
 
   plug :match
-  plug :fetch_params
   plug :dispatch
 
   get "/:title" do
