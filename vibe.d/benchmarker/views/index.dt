@@ -1,0 +1,33 @@
+extends layout
+
+block body
+  .jumbotron
+    h2 Welcome to Phoenix!
+    p.lead Phoenix is an Elixir Web Framework targeting full-featured, fault tolerant applications with realtime functionality.
+
+  .row-marketing
+    .col-lg-6
+      h4 Resources #{req.params["title"]}
+      ul
+        li
+          a(href="http://api.phoenixframework.org/") Docs
+        li
+          a(href="https://github.com/phoenixframework/phoenix") Source
+
+    .col-lg-6
+      h4 Help
+      ul
+        li
+          a(href="https://github.com/phoenixframework/phoenix/issues?state=open") Issues
+        li
+          a(href="irc://irc.freenode.net/elixir-lang") #elixir-lang on freenode IRC
+        li
+          a(href="https://twitter.com/chris_mccord") @chris_mccord
+
+      h4 Team Members
+
+      ul
+        - foreach(member; members)
+          li
+            b Name:
+            | #{member.name}
