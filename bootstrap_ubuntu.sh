@@ -37,6 +37,9 @@ sudo apt-get update
 sudo apt-get install -y oracle-java8-installer
 (cd play/benchmarker && ./activator clean stage)
 
+# bootstrap undertow
+(cd undertow/benchmarker && ./gradlew clean build)
+
 # install forego/wrk to do the benchmarking
 (cd $HOME/bin && wget https://godist.herokuapp.com/projects/ddollar/forego/releases/current/linux-amd64/forego && chmod +x forego)
 sudo apt-get install -y build-essential libssl-dev git

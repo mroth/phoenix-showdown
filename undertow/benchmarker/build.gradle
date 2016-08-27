@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile group: 'io.undertow', name: 'undertow-core', version: '1.2.12.Final' // or 1.3.0.CR2
+    compile group: 'com.github.spullara.mustache.java', name: 'compiler', version: '0.9.1'
+}
+
+mainClassName = 'Application'
